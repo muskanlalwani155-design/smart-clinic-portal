@@ -4,39 +4,49 @@ A full-stack clinical management web application designed to handle patient onbo
 
 ---
 
-## Tech Stack
+**Live Application:** [View Live Clinic Portal](https://smart-clinic-portal.vercel.app/login)  
+**Source Code:** [GitHub Repository](https://github.com/muskanlalwani155-design/smart-clinic-portal)
 
+---
+
+##  Tech Stack
+
+* **Core Language:** JavaScript (ES6+)
 * **Frontend:** React.js, modern CSS/Bootstrap, Axios
-* **Backend:** Node.js, Express.js (RESTful APIs)
-* **Authentication & Security:** JSON Web Tokens (JWT), bcryptjs (password hashing & salting), Role-Based Access Control (RBAC)
-* **Database:** MongoDB Atlas (Mongoose ODM, Document-based NoSQL)
-* **API Testing & Tooling:** Postman, Git, GitHub
-* **Deployment:** Vercel (Frontend & Serverless)
+* **Backend Runtime & Framework:** Node.js, Express.js (RESTful API architecture)
+* **Authentication & Backend Security:**
+  * Stateless token authorization using **JSON Web Tokens (JWT)**
+  * Password salting and cryptographic hashing using **bcryptjs**
+  * Granular **Role-Based Access Control (RBAC)** middleware
+  * Server-side route validation and sanitization
+* **Database & Modeling:** MongoDB Atlas (Mongoose ODM, Document-based NoSQL)
+* **API Testing & Developer Tools:** Postman, Git, GitHub
+* **Deployment:** Vercel (Frontend & Serverless deployment)
 
 ---
 
 ## Core Features & Implementation
 
 * **Secure Authentication & Authorization:**
-  * Password hashing and salting using **bcryptjs** before storing user credentials.
-  * Stateless session management via signed **JSON Web Tokens (JWT)**.
-  * Role-Based Access Control (**RBAC**) middleware to enforce granular permissions across Patients, Doctors, and Clinic Admins[cite: 2].
+  * Password hashing and salting using **bcryptjs** before persisting user credentials in MongoDB.
+  * Stateless session management via signed **JSON Web Tokens (JWT)** attached to authenticated headers.
+  * Role-Based Access Control (**RBAC**) middleware to enforce granular permissions across Patients, Doctors, and Clinic Admins.
 
 * **Doctor Appointment Booking Engine:**
-  * Real-time validation checks on backend routes to avoid double bookings or conflicting time slots[cite: 2].
-  * Slot status tracking (available, booked, completed, cancelled).
+  * Real-time validation checks on backend routes to avoid double bookings or conflicting time slots.
+  * Automated slot status tracking (available, booked, completed, cancelled).
 
 * **Medical Records & Consultation History:**
-  * Secure endpoints to view consultation notes, doctor prescriptions, and past clinic visits[cite: 2].
-  * Strict access guards preventing unauthorized users from accessing sensitive patient health records[cite: 2].
+  * Secure endpoints to view consultation notes, doctor prescriptions, and past clinic visits.
+  * Strict access guards preventing unauthorized users from accessing sensitive patient health records.
 
 * **Single-Page Interface (SPA):**
-  * Built with React.js using hooks and client-side routing for seamless page navigation without browser reloads[cite: 2].
-  * Centralized Axios instances with request/response interceptors to attach bearer tokens automatically.
+  * Built with React.js using hooks and client-side routing for seamless page navigation without browser reloads.
+  * Centralized Axios instances configured with request and response interceptors to automatically attach bearer tokens and handle session expirations.
 
 ---
 
-## Project Structure
+##  Project Structure
 
 ```text
 smart-clinic-portal/
