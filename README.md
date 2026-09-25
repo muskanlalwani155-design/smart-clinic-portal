@@ -4,18 +4,18 @@ A full-stack clinical management web application designed to handle patient onbo
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 * **Frontend:** React.js, modern CSS/Bootstrap, Axios
-* **Backend:** Node.js, Express.js (RESTful APIs)[cite: 2]
-* **Authentication & Security:** JSON Web Tokens (JWT), bcryptjs (password hashing & salting), Role-Based Access Control (RBAC)[cite: 2]
-* **Database:** MongoDB Atlas (Mongoose ODM, Document-based NoSQL)[cite: 2]
-* **API Testing & Tooling:** Postman, Git, GitHub[cite: 2]
-* **Deployment:** Vercel (Frontend & Serverless)[cite: 2]
+* **Backend:** Node.js, Express.js (RESTful APIs)
+* **Authentication & Security:** JSON Web Tokens (JWT), bcryptjs (password hashing & salting), Role-Based Access Control (RBAC)
+* **Database:** MongoDB Atlas (Mongoose ODM, Document-based NoSQL)
+* **API Testing & Tooling:** Postman, Git, GitHub
+* **Deployment:** Vercel (Frontend & Serverless)
 
 ---
 
-## ✨ Core Features & Implementation
+## Core Features & Implementation
 
 * **Secure Authentication & Authorization:**
   * Password hashing and salting using **bcryptjs** before storing user credentials.
@@ -36,7 +36,7 @@ A full-stack clinical management web application designed to handle patient onbo
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```text
 smart-clinic-portal/
