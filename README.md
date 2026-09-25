@@ -1,41 +1,57 @@
 # Smart Clinic Healthcare Portal
 
-A full-stack web application designed to manage clinic workflows, real-time doctor appointment bookings, patient onboarding, and clinical consultation records.
+A full-stack clinical management web application designed to handle patient onboarding, real-time doctor appointment bookings, and secure consultation records with role-based access.
 
 ---
 
-## Tech Stack
+## 🛠️ Tech Stack
 
 * **Frontend:** React.js, modern CSS/Bootstrap, Axios
 * **Backend:** Node.js, Express.js (RESTful APIs)[cite: 2]
-* **Database:** MongoDB Atlas (NoSQL / Document-based)[cite: 2]
-* **API Testing & Tools:** Postman, Git, GitHub[cite: 2]
-* **Deployment:** Vercel[cite: 2]
+* **Authentication & Security:** JSON Web Tokens (JWT), bcryptjs (password hashing & salting), Role-Based Access Control (RBAC)[cite: 2]
+* **Database:** MongoDB Atlas (Mongoose ODM, Document-based NoSQL)[cite: 2]
+* **API Testing & Tooling:** Postman, Git, GitHub[cite: 2]
+* **Deployment:** Vercel (Frontend & Serverless)[cite: 2]
 
 ---
 
-## Key Features
+## ✨ Core Features & Implementation
 
-* **Real-Time Appointment Scheduling:** Built-in server validation to verify doctor slot availability and prevent double bookings[cite: 2].
-* **Patient Records & History:** Manages patient onboarding details, past visit logs, and prescription records securely[cite: 2].
-* **Role-Based Access Control (RBAC):** Distinct workflows and access levels for patients, doctors, and clinic administrative staff to safeguard medical data[cite: 2].
-* **Responsive Single-Page Interface:** Smooth, client-side routing and state management with React for mobile and desktop screens[cite: 2].
+* **Secure Authentication & Authorization:**
+  * Password hashing and salting using **bcryptjs** before storing user credentials.
+  * Stateless session management via signed **JSON Web Tokens (JWT)**.
+  * Role-Based Access Control (**RBAC**) middleware to enforce granular permissions across Patients, Doctors, and Clinic Admins[cite: 2].
+
+* **Doctor Appointment Booking Engine:**
+  * Real-time validation checks on backend routes to avoid double bookings or conflicting time slots[cite: 2].
+  * Slot status tracking (available, booked, completed, cancelled).
+
+* **Medical Records & Consultation History:**
+  * Secure endpoints to view consultation notes, doctor prescriptions, and past clinic visits[cite: 2].
+  * Strict access guards preventing unauthorized users from accessing sensitive patient health records[cite: 2].
+
+* **Single-Page Interface (SPA):**
+  * Built with React.js using hooks and client-side routing for seamless page navigation without browser reloads[cite: 2].
+  * Centralized Axios instances with request/response interceptors to attach bearer tokens automatically.
 
 ---
 
-## Project Structure
+## 📁 Project Structure
 
 ```text
 smart-clinic-portal/
-├── client/                 # React frontend application
+├── client/                     # React Single-Page Application
 │   ├── src/
-│   │   ├── components/     # UI components (Navbar, AppointmentCard, etc.)
-│   │   ├── pages/          # Dashboard, Booking, Login, Records
-│   │   └── services/       # Axios API integration modules
+│   │   ├── components/         # Reusable UI components (Navbar, AppointmentCard, Modals)
+│   │   ├── context/            # AuthContext for JWT user session state
+│   │   ├── pages/              # Dashboard, BookAppointment, Login, Register, Records
+│   │   └── services/           # Axios API configuration & token interceptors
 │   └── package.json
-├── server/                 # Node.js & Express backend
-│   ├── controllers/        # Route controllers for bookings, auth, and patients
-│   ├── models/             # MongoDB Mongoose schemas (Doctor, Patient, Appointment)
-│   ├── routes/             # RESTful API endpoints
-│   └── server.js           # Server entry point
+├── server/                     # Node.js & Express.js REST API
+│   ├── config/                 # MongoDB Atlas connection setup
+│   ├── controllers/            # Route handler logic (authController, appointmentController)
+│   ├── middleware/             # authMiddleware (JWT verification) & rbacMiddleware
+│   ├── models/                 # Mongoose schemas (User, Doctor, Appointment, Record)
+│   ├── routes/                 # Express API routes (/api/auth, /api/appointments)
+│   └── server.js               # Entry point
 └── README.md
